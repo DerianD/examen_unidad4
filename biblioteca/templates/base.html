@@ -42,14 +42,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Inicio</a></li>
             <li><a href="/buscar">Buscar</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
           </ul>
-          <form class="navbar-form navbar-right" action="." method="GET">
-            <input type="text" class="form-control" placeholder="Search..." name="q" value="{{ query|escape }}">
-          </form>
+          {%block busquedas%}
+
+          {%endblock%}
         </div>
       </div>
     </nav>

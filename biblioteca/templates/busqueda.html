@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
+{%block busquedas%}
+          <form class="navbar-form navbar-right" action="." method="GET">
+            <input type="text" class="form-control" placeholder="Buscar..." name="q" value="{{ query|escape }}">
+          </form>
+{%endblock%}
+
 {%block content%}
-  <h1>Search</h1>
+  <h1>Busquedas</h1>
 
-
-  <form action="." method="GET">
-    <input type="text" name="q" value="{{ query|escape }}" class="form-control" placeholder="Search...">
-    <input type="submit" value="Search" class="btn btn-primary">
-  </form>
- 
   {% if query %}
     <h2>Resultado para "{{ query|escape }}":</h2>
  
@@ -30,7 +30,7 @@
      {% for libromodelo in results %}
 
     <tr></tr>
-      <th><a href="/libros/{{libromodelo.id}}/editar">{{libromodelo.nombre}}</a></th>
+      <th><a href="/libros/{{libromodelo.id}}">{{libromodelo.nombre}}</a></th>
       <th>{{libromodelo.autor}}</th>
       <th>{{libromodelo.editorial}}</th>
     

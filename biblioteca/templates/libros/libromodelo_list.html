@@ -1,5 +1,11 @@
 {%extends 'base.html'%}
 
+{%block busquedas%}
+          <form class="navbar-form navbar-right" action="." method="GET">
+            <input type="text" class="form-control" placeholder="Buscar..." name="q" value="{{ query|escape }}">
+          </form>
+{%endblock%}
+
 {%block content%}
 
 

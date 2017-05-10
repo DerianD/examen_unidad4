@@ -64,15 +64,16 @@ class LibroLista(ListView):
 
     def get_queryset(self, *args, **kwargs):
         qs = super(LibroLista, self).get_queryset(**kwargs)
-        query = self.request.GET.get("q")
-        if query:
+        bs = self.request.GET.get("q")
+        if bs:
             qset = (
-                Q(nombre__icontains=query) |
-                Q(autor__icontains=query)
+                Q(nombre__icontains=bs) |
+                Q(autor__icontains=bs) |
+                Q(editorial__icontains=bs)
             )
             qs = libromodelo.objects.filter(qset).distinct()
         
-        print query
+        print bs
         return qs
 
         # def get_queryset(self, *args, **kwargs):
